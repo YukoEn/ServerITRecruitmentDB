@@ -142,7 +142,8 @@ public class ITRecruitController {
         candidateFormF.setFirstName(candidate.getFirstName());
         candidateFormF.setLastName(candidate.getLastName());
         candidateFormF.setStreetaddress(candidate.getStreetaddress());
-        candidateFormF.setPostoffice(candidate.getPostcode());
+        candidateFormF.setPostcode(candidate.getPostcode());        
+        candidateFormF.setPostoffice(candidate.getPostoffice());
         candidateFormF.setCountry(candidate.getCountry());
         candidateFormF.setPhone(candidate.getPhone());
         candidateFormF.setEmail(candidate.getEmail());
