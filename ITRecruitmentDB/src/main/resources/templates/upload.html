@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Upload Candidate Files</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css"
+	th:href="@{../css/bootstrap.min.css}" />
+</head>
+<body>
+	<div class="container">
+		<h1>Upload Candidate Files</h1>
+		<form th:object="${candidateUpload}" th:action="@{upload}" method="post" enctype="multipart/form-data">
+		<!-- <form method="POST" action="/upload" enctype="multipart/form-data">  -->
+			<div class="form-group row">
+				<input type="file" name="file" /><br/><br/>
+				<input type="hidden" th:field="*{id}" />
+				<input type="hidden" th:field="*{firstName}" />
+				<input type="hidden" th:field="*{lastName}" />
+				<input type="hidden" th:field="*{streetaddress}" />
+				<input type="hidden" th:field="*{postcode}" />				
+				<input type="hidden" th:field="*{postoffice}" />				
+				<input type="hidden" th:field="*{country}" />				
+				<input type="hidden" th:field="*{phone}" />	
+				<input type="hidden" th:field="*{email}" />
+				<input type="hidden" th:field="*{category.id}" />				
+												
+				<input type="submit" class="btn btn-primary" value="Upload" />			
+			</div>
+		</form>
+		<!-- <a href="/finish" class="btn btn-dark">No upload</a> -->
+	</div>
+</body>
+</html>

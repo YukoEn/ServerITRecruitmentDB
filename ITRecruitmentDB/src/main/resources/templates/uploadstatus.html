@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Upload Status</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css"
+	th:href="@{../css/bootstrap.min.css}" />
+</head>
+<body>
+	<div class="container">
+ 		<h3 th:text="${msg}" />
+ 		<a class="btn btn-success" th:href="@{/back/{id}(id=${cId})}" role="button">Back</a>
+	</div>
+</body>
+</html>

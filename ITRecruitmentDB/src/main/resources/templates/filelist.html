@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Candidate Files</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css"
+	th:href="@{../css/bootstrap.min.css}" />
+</head>
+<body>
+	<div class="container">
+		<h1>Candidate Information</h1>
+		<table class="table table-striped">
+		  	<thead>
+   				<tr>
+      				<th scope="col">Name</th>
+      				<th scope="col">Type</th>
+     				<th scope="col"></th>
+      				<th scope="col"></th>
+    			</tr>
+  			</thead>
+  			<tbody>
+  			    <tr th:each = "file : ${files}">
+    				<td th:text="${file.file_name}"></td>
+    				<td th:text="${file.mime_type}"></td>
+ 					<td><a th:href="@{/file/{id}(id=${file.id})}">Download</a></td>
+ 					<td><a th:href="@{/deletefile/{id}/{cid} (id=${file.id}, cid=${file.candidate_id})}">Delete</a></td>
+    			</tr>
+  			</tbody>
+		</table>
+		<div class="col-md-4">
+			<a th:href="@{/back/{id}(id=${cId})}" class="btn btn-primary">Upload</a>
+		</div>
+		<div class="col-md-4">
+			<a href="/finish" class="btn btn-dark" style="margin-top: 20px;">Finish</a>
+		</div>
+	</div>
+</body>
+</html>

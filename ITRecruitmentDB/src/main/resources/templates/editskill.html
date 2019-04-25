@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Edit skills</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css"
+	th:href="@{../css/bootstrap.min.css}" />
+</head>
+<body>
+	<div class="container">
+		<h1>Edit Skills</h1>
+		<form th:object="${skillset}" th:action="@{update}" action="#" method="post">		
+			 <div class="form-group row" th:each= "item, itemStat : ${skillsEdit}">
+				<label for="levelList" class="col-sm-4 col-form-label" th:text="${item.skill_name} + ': '"></label>
+				<div class="col-sm-2">
+					<select id="levelList" th:field="*{skillitems[__${itemStat.index}__].skillLevel}"
+					class="form-control">
+       					<option th:each="eval: ${evals}" th:value="${eval}" th:text="${eval}"
+       					th:selected="${item.skill_level}"       					
+       					></option>
+    				</select>	
+   				</div>
+				<div class="col-sm-3"></div>
+				<input type="hidden" th:field="*{skillitems[__${itemStat.index}__].skillCandidateId.candidateId}" />
+				<input type="hidden" th:field="*{skillitems[__${itemStat.index}__].skillCandidateId.skillId}" />
+			</div>
+			<input type="submit" class="btn btn-primary" value="Save"></input>
+		</form>
+
+	
+
+	</div>
+</body>
+</html>
